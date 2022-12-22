@@ -3,7 +3,7 @@
     <title>CNC Tool's Speed Calculator</title>
   </head>
   <body>
-    <form action="/toolspeedcalc.py" method="POST">
+    <form>
       <label for="fz">fz:</label><br>
       <input type="text" id="fz" name="fz"><br>
       <label for="fn">fn:</label><br>
@@ -14,7 +14,7 @@
       <input type="text" id="z" name="z"><br>
       <label for="Vc">Vc:</label><br>
       <input type="text" id="Vc" name="Vc"><br><br>
-      <button type="submit">Calculate</button>
+      <button type="submit" onclick="calculate()">Calculate</button>
     </form> 
   </body>
 </html>
