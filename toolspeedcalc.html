@@ -1,23 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <form action="/" method="POST">
+      <label for="fz">fz:</label><br>
+      <input type="text" id="fz" name="fz"><br>
+      <label for="fn">fn:</label><br>
+      <input type="text" id="fn" name="fn"><br>
+      <label for="dc">dc:</label><br>
+      <input type="text" id="dc" name="dc"><br>
+      <label for="z">z:</label><br>
+      <input type="text" id="z" name="z"><br>
+      <label for="Vc">Vc:</label><br>
+      <input type="text" id="Vc" name="Vc"><br><br>
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="results">
+      <!-- Calculated values will be inserted here with JavaScript -->
+    </div>
+    <script>
+      // Get the calculated values from the Flask template
+      var n = {{ n|tojson|safe }};
+      var Vf = {{ Vf|tojson|safe }};
 
-<body>
-<form action="toolspeedcalc.py" method="POST">
-  <label for="fz">fz:</label><br>
-  <input type="text" id="fz" name="fz"><br>
-  <label for="fn">fn:</label><br>
-  <input type="text" id="fn" name="fn"><br>
-  <label for="dc">dc:</label><br>
-  <input type="text" id="dc" name="dc"><br>
-  <label for="z">z:</label><br>
-  <input type="text" id="z" name="z"><br>
-  <label for="Vc">Vc:</label><br>
-  <input type="text" id="Vc" name="Vc"><br><br>
-  <button type="submit">Calculate</button>
-</form> 
-</body>
+      // Insert the calculated values into the div element
+      document.getElementById("results").innerHTML = "n = " + n + "<br>Vf = " + Vf;
+    </script>
+  </body>
 </html>
