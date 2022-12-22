@@ -22,7 +22,6 @@ function calculate() {
   }
 
   // Display the results
-  document.write("<h1>Results</h1>");
-  document.write("<p>n = " + n + "</p>");
-  document.write("<p>Vf = " + Vf + "</p>");
+  document.getElementById("n").innerHTML = "Result: " + n;
+  document.getElementById("Vf").innerHTML = "Result: " + Vf;
 }
