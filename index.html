@@ -2,21 +2,30 @@
   <head>
     <title>Calculator</title>
     <script>
-      function calculate() {
-        // Get the input values from the form
-        var value1 = document.getElementById("value1").value;
-        var value2 = document.getElementById("value2").value;
+      
+function calculate() {
+  // Get the input values from the form
+  var value1 = document.getElementById("value1").value;
+  var value2 = document.getElementById("value2").value;
 
-        // Convert the values to numbers (if they are not already numbers)
-        value1 = Number(value1);
-        value2 = Number(value2);
+  // Convert the values to numbers (if they are not already numbers)
+  value1 = Number(value1);
+  value2 = Number(value2);
 
-        // Calculate the sum
-        var sum = value1 + value2;
+  // Calculate the sum
+  var sum = value1 + value2;
 
-        // Display the result
-        document.getElementById("result").innerHTML = "Result: " + sum;
-      }
+  // Store the result in an array
+  var results = [];
+  results.push(sum);
+
+  // Display the results
+  document.getElementById("result").innerHTML = "Results: " + results.join(", ");
+
+  // Return false to prevent the form from being submitted
+  return false;
+}
+
     </script>
   </head>
   <body>
