@@ -1,41 +1,45 @@
-<html>
-  <head>
-    <title>Calculator</title>
-    <script>
-      
+var counter = 1;
+
 function calculate() {
+
   // Get the input values from the form
-  var value1 = document.getElementById("value1").value;
-  var value2 = document.getElementById("value2").value;
+  var fz = document.getElementById("fz").value;
+  var fn = document.getElementById("fn").value;
+  var dc = document.getElementById("dc").value;
+  var z = document.getElementById("z").value;
+  var Vc = document.getElementById("Vc").value;
 
-  // Convert the values to numbers (if they are not already numbers)
-  value1 = Number(value1);
-  value2 = Number(value2);
+  // Calculate n
+  var n = Vc * 1000 / (Math.PI * dc);
+  console.log()
 
-  // Calculate the sum
-  var sum = value1 + value2;
-
+  // Calculate Vf
+  var Vf;
+  if (fn != 0) {
+    Vf = fn * n;
+  } else {
+    Vf = fz * z * n;
+  }
+  
+  // Round up the sum to two decimal places
+  n = n.toFixed(2);
+  Vf = Vf.toFixed(2);
+  
   // Store the result in an array
   var results = [];
-  results.push(sum);
-
+  results.push(n);
+  
   // Display the results
-  document.getElementById("result").innerHTML = "Results: " + results.join(", ");
+  var resultElement = document.getElementById("result");
+  
+  results.forEach(function(result) {
+    var resultItem = document.createElement("div");
+    resultItem.innerHTML = "Tool " + counter + ": " + "n = " + n + "; Vf = " + Vf;
+    resultElement.appendChild(resultItem);
+    counter++;
+  });
+
 
   // Return false to prevent the form from being submitted
   return false;
 }
-
-    </script>
-  </head>
-  <body>
-<form onsubmit="return calculate()">
-  <label for="value1">Value 1:</label><br>
-  <input type="text" id="value1" name="value1"><br>
-  <label for="value2">Value 2:</label><br>
-  <input type="text" id="value2" name="value2"><br><br>
-  <button type="submit">Calculate</button>
-</form>
-    <div id="result"></div>
-  </body>
-</html>
