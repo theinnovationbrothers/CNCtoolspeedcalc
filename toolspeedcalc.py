@@ -1,26 +1,29 @@
-import cgi
+from flask import Flask, render_template, request
 import math
 
-form = cgi.FieldStorage()
+app = Flask(__name__)
 
-# Get the input values from the form
-fz = float(form.getvalue("fz"))
-fn = float(form.getvalue("fn"))
-dc = float(form.getvalue("dc"))
-z = float(form.getvalue("z"))
-Vc = float(form.getvalue("Vc"))
+@app.route("/")
+def calculator():
+    return render_template("toolspeedcalc.html")
 
-# Calculate n
-n = Vc * 1000 / (math.pi * dc)
+@app.route("/", methods=["POST"])
+def calculate():
+    # Get the input values from the form
+    fz = float(request.form["fz"])
+    fn = float(request.form["fn"])
+    dc = float(request.form["dc"])
+    z = float(request.form["z"])
+    Vc = float(request.form["Vc"])
 
-# Calculate Vf
-if fn != 0:
-    Vf = fn * n
-else:
-    Vf = fz * z * n
+    # Calculate n
+    n = Vc * 1000 / (math.pi * dc)
 
-# Print the results
-print("Content-Type: text/html")
-print()
-print("<p>n =", round(n, 2), "</p>")
-print("<p>Vf =", round(Vf, 2), "</p>")
+    # Calculate Vf
+    if fn != 0:
+        Vf = fn * n
+    else:
+        Vf = fz * z * n
+
+    # Render the calculator template with the calculated values
+    return render_template("toolspeedcalc.html", n=n, Vf=Vf)
