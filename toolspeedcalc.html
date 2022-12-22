@@ -4,7 +4,7 @@
     <script src="toolspeedcalc.js"></script>
   </head>
   <body>
-    <form>
+    <form onsubmit="return calculate()">
       <label for="fz">fz:</label><br>
       <input type="text" id="fz" name="fz"><br>
       <label for="fn">fn:</label><br>
@@ -15,7 +15,7 @@
       <input type="text" id="z" name="z"><br>
       <label for="Vc">Vc:</label><br>
       <input type="text" id="Vc" name="Vc"><br><br>
-      <button type="submit" onclick="calculate()">Calculate</button>
+      <button type="submit">Calculate</button>
     </form>
     <div id="n"></div>
     <div id="Vf"></div>
