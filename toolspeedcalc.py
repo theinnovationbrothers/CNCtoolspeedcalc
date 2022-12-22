@@ -19,5 +19,16 @@ if fn != 0:
 else:
     Vf = fz * z * n
 
-    # Render the results template with the calculated values
-    return render_template("results.html", n=n, Vf=Vf)
+# Print the HTTP headers and HTML content
+print("Content-Type: text/html")
+print()
+print("<html>")
+print("<head>")
+print("<title>CNC Tool's Speed Calculator</title>")
+print("</head>")
+print("<body>")
+print("<h1>Results</h1>")
+print("<p>n = ", n, "</p>")
+print("<p>Vf = ", Vf, "</p>")
+print("</body>")
+print("</html>")
