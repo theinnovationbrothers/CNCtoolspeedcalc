@@ -19,8 +19,5 @@ if fn != 0:
 else:
     Vf = fz * z * n
 
-# Print the results
-print("Content-Type: text/html")
-print()
-print("<p>n =", round(n, 2), "</p>")
-print("<p>Vf =", round(Vf, 2), "</p>")
+    # Render the results template with the calculated values
+    return render_template("results.html", n=n, Vf=Vf)
