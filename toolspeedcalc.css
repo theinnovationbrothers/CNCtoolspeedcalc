@@ -1,0 +1,44 @@
+table.minimalistBlack {
+  border: 3px solid #000000;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.minimalistBlack td, table.minimalistBlack th {
+  width: 0;
+  border: 1px solid #000000;
+  padding: 5px 4px;
+}
+table.minimalistBlack tbody td {
+  font-size: 13px;
+}
+table.minimalistBlack thead {
+  background: #000000;
+  border-bottom: 3px solid #000000;
+}
+table.minimalistBlack thead th {
+	font-size: 15px;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: left;
+}
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+form {
+  width: 80%;
+  display: block;
+  font-size: 13px;
+  }
+input {
+  border: 1px solid black;
+  display: block;
+  font-size: 13px;
+}
+input:focus {
+  background-color: #eee;
+}
