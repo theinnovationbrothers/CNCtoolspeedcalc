@@ -2,21 +2,29 @@
   <head>
     <title>CNC Tool's Speed Calculator</title>
     <script src="toolspeedcalc.js"></script>
+    <link rel="stylesheet" href="./toolspeedcalc.css">
   </head>
   <body>
-    <form onsubmit="return calculate()">
-      <label for="fz">fz:</label><br>
-      <input type="text" id="fz" name="fz"><br>
-      <label for="fn">fn:</label><br>
-      <input type="text" id="fn" name="fn"><br>
-      <label for="dc">dc:</label><br>
-      <input type="text" id="dc" name="dc"><br>
-      <label for="z">z:</label><br>
-      <input type="text" id="z" name="z"><br>
-      <label for="Vc">Vc:</label><br>
-      <input type="text" id="Vc" name="Vc"><br><br>
+    <p>This WebApp is a work-in-progress Calculator that helps in preparing a Tool Sheet for programming and/or operating a Milling Machine. The Calculator computes each tool's details and specifications, which are consecutively displayed bellow the Calculator and are easily exported and/or printed out. This WebApp was programmed in cooperation with an artificial intelligence (AI).</p>
+    <button id="toggle-form" onClick="toggleForm()">Show/Hide Calculator</button>
+    <form id="form" onSubmit="return calculate()" style="display: block;">
+    <table>
+      <tr><td><label for="name">Tool description: </label></td>
+      <td><input type="text" id="name" name="name"></td></tr>
+      <tr><td><label for="dc">Diameter (Dc) [mm]: </label></td>
+      <td><input type="text" id="dc" name="dc"></td></tr>
+      <tr><td><label for="Vc">Cutting Speed (Vc) [mm/min]: </label></td>
+      <td><input type="text" id="Vc" name="Vc"></td></tr>
+      <tr><td><label for="z">Number of Edges (z): </label></td>
+      <td><input type="text" id="z" name="z"></td></tr>
+      <tr><td><label for="fz">Feed-rate per Edge (fz) [mm/z]: </label></td>
+      <td><input type="text" id="fz" name="fz"></td></tr>
+      <tr><td><label for="fn">Feed-rate per Revolution (fn) [mm/rot]: </label></td>
+      <td><input type="text" id="fn" name="fn"></td></tr>
+      </table><br>
       <button type="submit">Calculate</button>
     </form>
+    <div id="error-message"></div>
     <div id="result"></div>
   </body>
 </html>
